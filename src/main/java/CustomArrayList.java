@@ -9,19 +9,26 @@ public class CustomArrayList<T> {
 
     private static final int installSize = 10;
 
+    /**
+     * Конструктор - создание нового объекта
+     */
     public CustomArrayList() {
 
         this.elementData = new Object[installSize];
     }
 
-    //Добавление элементов в коллекцию
+    /**
+     * Метод добавление элемента в коллекцию
+     */
     public void add(T obj) {
         grow();
         elementData[size] = obj;
         size++;
     }
 
-    //Удаление элемента из коллекции
+    /**
+     * Метод удаление элемента из коллекции
+     */
     public void remove(Object obj) {
         for (int i = 0; i < this.size; i++) {
             if (elementData[i].equals(obj)) {
@@ -37,7 +44,10 @@ public class CustomArrayList<T> {
         }
     }
 
-    //Очистить коллекцию
+
+    /**
+     * Метод очистки коллекции
+     */
     public void removeAll(){
         Object[] es = elementData;
         for (int to = size, i = size = 0; i < to; i++)
@@ -51,7 +61,10 @@ public class CustomArrayList<T> {
             elementData = elementDataNew;
         }
     }
-    // Получение элемента из коллекции
+    /**
+     * Метод получение элемента из коллекции
+     * @return возвращает элемент по индексу
+     */
     public Object get(int index) {
         Objects.checkIndex(index, size);
         return this.elementData[index];
