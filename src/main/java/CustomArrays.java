@@ -1,20 +1,13 @@
 
-
-import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.List;
 
 public class CustomArrays {
 
-    /*public static <T> void quickSort(CustomArrayList<T> customArrayList, Comparator<T> comparator) {
+    public static <T> void quickSort(CustomArrayList<T> customArrayList, Comparator<T> comparator) {
         quickSort(customArrayList, 0, customArrayList.size() - 1, comparator);
-    }*/
-
-    public static <T> void quickSort(ArrayList<T> arrayList, Comparator<T> comparator) {
-        quickSort(arrayList, 0, arrayList.size() - 1, comparator);
     }
 
-    private static <T> void quickSort(List<T> arrayList, int begin, int end,
+    private static <T> void quickSort(CustomArrayList<T> arrayList, int begin, int end,
                                       Comparator<T> comparator) {
         if (begin < end) {
             int partitionIndex = partition(arrayList, begin, end, comparator);
@@ -24,19 +17,19 @@ public class CustomArrays {
         }
     }
 
-    private static <T> int partition(List<T> arrayList, int begin, int end,
+    private static <T> int partition(CustomArrayList<T> customArrayList, int begin, int end,
                                      Comparator<T> comparator) {
-        T pivot = arrayList.get(end);
+        T pivot = customArrayList.get(end);
         int i = (begin-1);
 
         for (int j = begin; j < end; j++) {
-            if (comparator.compare(arrayList.get(j), pivot) > 0) {
+            if (comparator.compare(customArrayList.get(j), pivot) > 0) {
                 i++;
-                arrayList.set(j,arrayList.set(i,arrayList.get(j)));
+                customArrayList.set(j, customArrayList.set(i, customArrayList.get(j)));
             }
         }
 
-        arrayList.set(end,arrayList.set(i+1,arrayList.get(end)));
+        customArrayList.set(end, customArrayList.set(i+1, customArrayList.get(end)));
 
         return i+1;
     }

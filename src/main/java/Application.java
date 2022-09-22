@@ -1,19 +1,29 @@
-import java.util.ArrayList;
 
 public class Application {
 
     public static void main(String[] args) {
         CustomArrayList<String> customArrayList = new CustomArrayList<>();
-        customArrayList.add("m");
-        customArrayList.add("c");
-        customArrayList.add("z");
 
-        System.out.println(customArrayList.get(1));
+        System.out.println("List empty : " + customArrayList.isEmpty());
 
-        customArrayList.removeAll();
+        customArrayList.add("Boris");
+        customArrayList.add("Armen");
+        customArrayList.add("Dororo");
+        customArrayList.add("Abramah");
+        customArrayList.add("Armen");
+        customArrayList.add("Armen5");
 
-        //CustomArrays.quickSort(customArrayList, (String, t1) -> t1 + String);
+        System.out.println("Init : " + customArrayList);
+        System.out.println("List empty : " + customArrayList.isEmpty());
 
+        CustomArrays.quickSort(customArrayList, (s1, s2) -> s2.compareTo(s1));
+        System.out.println("After quick sort : " + customArrayList);
+
+        customArrayList.remove("Armen");
+        System.out.println("After remove \"Armen\" : " + customArrayList);
+
+        System.out.println("List contains \"Armen\" : " + customArrayList.contains("Armen"));
+        System.out.println("List contains \"Armen5\" : " + customArrayList.contains("Armen5"));
 
     }
 }
